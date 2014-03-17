@@ -1,0 +1,27 @@
+{
+  "name": "ampersand-registry",
+  "description": "Global model registry for tracking instantiated models accross collections.",
+  "version": "0.0.0",
+  "author": "Henrik Joreteg <henrikandyet.net>",
+  "bugs": {
+    "url": "https://github.com/ampersandjs/ampersand-registry/issues"
+  },
+  "devDependencies": {
+    "precommit-hook": "0.x.x",
+    "tape": "2.x.x"
+  },
+  "homepage": "https://github.com/ampersandjs/ampersand-registry",
+  "keywords": [
+    "models",
+    "collection"
+  ],
+  "license": "MIT",
+  "main": "ampersand-registry.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/ampersand-registry"
+  },
+  "scripts": {
+    "test": "node test/main.js"
+  }
+}
