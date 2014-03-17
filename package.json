@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "precommit-hook": "0.x.x",
-    "tape": "2.x.x"
+    "tape": "2.x.x",
+    "browserify": "*"
   },
   "homepage": "https://github.com/ampersandjs/ampersand-registry",
   "keywords": [
@@ -22,6 +23,7 @@
     "url": "git://github.com/ampersandjs/ampersand-registry"
   },
   "scripts": {
+    "build": "browserify -e ampersand-registry.js -o ampersand-registry.bundle.js -s AmpersandRegistry",
     "test": "node test/main.js"
   }
 }
