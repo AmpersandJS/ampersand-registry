@@ -7,9 +7,9 @@
     "url": "https://github.com/ampersandjs/ampersand-registry/issues"
   },
   "devDependencies": {
+    "ampersand-state": "0.x.x",
     "precommit-hook": "0.x.x",
-    "tape": "2.x.x",
-    "browserify": "*"
+    "tape": "2.x.x"
   },
   "homepage": "https://github.com/ampersandjs/ampersand-registry",
   "keywords": [
@@ -23,7 +23,22 @@
     "url": "git://github.com/ampersandjs/ampersand-registry"
   },
   "scripts": {
-    "build": "browserify -e ampersand-registry.js -o ampersand-registry.bundle.js -s AmpersandRegistry",
     "test": "node test/main.js"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/9..latest",
+      "firefox/17..latest",
+      "firefox/nightly",
+      "chrome/22..latest",
+      "chrome/canary",
+      "opera/12..latest",
+      "opera/next",
+      "safari/5.1..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest",
+      "android-browser/4.2..latest"
+    ]
   }
 }

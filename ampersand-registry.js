@@ -1,3 +1,5 @@
+var isArray = Array.isArray;
+
 // Registry
 // ---------------
 
@@ -29,10 +31,13 @@ Registry.prototype.lookup = function (type, id, ns) {
 
 // Add a model to the cache if it has not already been set
 Registry.prototype.store = function (model) {
-    var cache = this._getCache(model._namespace),
-        key = model.type + model.getId();
-    // Prevent overriding a previously stored model
-    cache[key] = cache[key] || model;
+    (isArray(model) ? model : [model]).forEach(function (model) {
+        var cache = this._getCache(model.getNamespace());
+        var key = model.type + model.getId();
+        if (!model.type) throw Error('Models must have "type" attribute to store in registry');
+        // Prevent overriding a previously stored model
+        cache[key] = cache[key] || model;
+    }, this);
     return this;
 };
 

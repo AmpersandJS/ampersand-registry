@@ -16,6 +16,10 @@ Part of the [Ampersand.js toolkit](http://ampersandjs.com) for building clientsi
 npm install ampersand-registry
 ```
 
+## browser support
+
+[![testling badge](https://ci.testling.com/AmpersandJS/ampersand-registry.png)](https://ci.testling.com/AmpersandJS/ampersand-registry)
+
 ## example
 
 ```javascript
