@@ -17,10 +17,43 @@ test('should throw if no type attribute', function (t) {
     t.end();
 });
 
-test('should store retrieve with a type and an id', function (t) {
+test('should store/retrieve with a type and an id (for backward compat)', function (t) {
     var r = new Registry();
     var S = State.extend({
         type: 'thing',
+        props: {
+            id: 'string'
+        }
+    });
+    var model = new S({id: '1'});
+    r.store(model);
+    t.equal(r.lookup('thing', '1'), model);
+    t.notEqual(r.lookup('thing', '2'), model);
+    t.notEqual(r.lookup('', '1'), model);
+    t.end();
+});
+
+test('should store/retrieve with default type attribute', function (t) {
+    var r = new Registry();
+    var S = State.extend({
+        modelType: 'thing',
+        props: {
+            id: 'string'
+        }
+    });
+    var model = new S({id: '1'});
+    r.store(model);
+    t.equal(r.lookup('thing', '1'), model);
+    t.notEqual(r.lookup('thing', '2'), model);
+    t.notEqual(r.lookup('', '1'), model);
+    t.end();
+});
+
+test('should store/retrieve with custom type attribute', function (t) {
+    var r = new Registry();
+    var S = State.extend({
+        customType: 'thing',
+        typeAttribute: 'customType',
         props: {
             id: 'string'
         }

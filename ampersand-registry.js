@@ -33,8 +33,9 @@ Registry.prototype.lookup = function (type, id, ns) {
 Registry.prototype.store = function (model) {
     (isArray(model) ? model : [model]).forEach(function (model) {
         var cache = this._getCache(model.getNamespace());
-        var key = model.type + model.getId();
-        if (!model.type) throw Error('Models must have "type" attribute to store in registry');
+        var type = model.getType && model.getType() || model.type;
+        var key = type + model.getId();
+        if (!type) throw Error('Models must have "modelType" attribute or "getType" method to store in registry');
         // Prevent overriding a previously stored model
         cache[key] = cache[key] || model;
     }, this);
