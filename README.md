@@ -1,6 +1,6 @@
 # ampersand-registry
 
-Global model registry for tracking instantiated models accross collections.
+Global model registry for tracking instantiated models across collections.
 
 This isn't necessary for most apps, but sometimes it's useful to create a global registry of all or a subset of instantiated models in your application. This can be useful when realtime applications where you're getting incoming events with IDs and model types and need some global way to look up models in your application.
 
