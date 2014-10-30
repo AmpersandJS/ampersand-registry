@@ -31,32 +31,30 @@ window.registry = new Registry();
 
 // then whenever we're defining models for our application
 // if we're using ampersand-model or it's lower level cousin
-// ampersand-state we can pass it the registry as part of the
-// definition.
+// ampersand-state we can store that model in the registry 
+// in the initialize method
 
 var MyModel = Model.extend({
-    type: 'user',
+    modelType: 'user',
     props: {
         name: 'string'
     },
-    // Pass the registry you want all the instances of this model
-    // to be included in.
-    registry: window.registry
-
-    // can also be a function in case it's not defined yet
-    registry: function () {
-        return window.registry;
-    } 
+    initialize : function(){
+        window.registry.store(this);
+        this.on('destroy', function(){
+            window.registry.remove(this.getType(), this.getId());
+        }, this);
+        
+    }
 });
 ```
 
-After doing this all instantiated models will be put into the registry based on their `type` property and be removed when destroyed.
+After doing this all instantiated models will be put into the registry based on their `modelType` property and be removed when destroyed.
 
 Then the registry can be used to look up models as follows:
 
 ```javascript
 // explicitly storing a model
-// (if you declare them in your models this isn't necessary) 
 // this will use the models `type`, `getId`, and `namespace` 
 // properties to store this accordingly.
 registry.store(model);
