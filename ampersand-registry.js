@@ -1,3 +1,4 @@
+/*$AMPERSAND_VERSION*/
 var isArray = Array.isArray;
 
 // Registry
