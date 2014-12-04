@@ -30,8 +30,8 @@ var Model = require('ampersand-model');
 window.registry = new Registry();
 
 // then whenever we're defining models for our application
-// if we're using ampersand-model or it's lower level cousin
-// ampersand-state we can store that model in the registry 
+// if we're using ampersand-model (or its lower level cousin
+// ampersand-state) we can store that model in the registry 
 // in the initialize method
 
 var MyModel = Model.extend({
