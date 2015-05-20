@@ -1,7 +1,7 @@
 {
   "name": "ampersand-registry",
   "description": "Global model registry for tracking instantiated models accross collections.",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "Henrik Joreteg <henrikandyet.net>",
   "bugs": {
     "url": "https://github.com/ampersandjs/ampersand-registry/issues"
